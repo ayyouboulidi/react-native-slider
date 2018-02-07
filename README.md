@@ -11,7 +11,7 @@ in progress, ideas and contributions are very welcome.
 <img src="https://raw.githubusercontent.com/jeanregisser/react-native-slider/master/Screenshots/basic@2x.png" width="375">
 <img src="https://raw.githubusercontent.com/jeanregisser/react-native-slider/master/Screenshots/basic_android_xxhdpi.png" width="360">
 
-<img src="https://www.github.com/ayyouboulidi/react-native-slider/master/Screenshots/slider with text in thumb.png" width="360">
+<img src="https://github.com/ayyouboulidi/react-native-slider/blob/master/Screenshots/slider%20with%20text%20in%20thumb.png" width="360">
 
 It is a drop-in replacement for [Slider](http://facebook.github.io/react-native/docs/slider.html).
 
