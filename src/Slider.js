@@ -11,7 +11,8 @@ import {
   PanResponder,
   View,
   Easing,
-  ViewPropTypes
+  ViewPropTypes,
+  Text
 } from "react-native";
 
 import PropTypes from 'prop-types';
@@ -149,6 +150,16 @@ export default class Slider extends PureComponent {
     thumbImage: Image.propTypes.source,
 
     /**
+     * Sets a text for the thumb.
+     */
+    thumbText: PropTypes.string,
+
+    /**
+     * Sets the style for the thumb text.
+     */
+    thumbTextStyle: PropTypes.object,
+
+    /**
      * Set this to true to visually see the thumb touch rect in green.
      */
     debugTouchArea: PropTypes.bool,
@@ -223,6 +234,7 @@ export default class Slider extends PureComponent {
       maximumTrackTintColor,
       thumbTintColor,
       thumbImage,
+      thumbText,
       styles,
       style,
       trackStyle,
@@ -276,6 +288,7 @@ export default class Slider extends PureComponent {
           ]}
         >
           {this._renderThumbImage()}
+          {this._renderThumbText()}
         </Animated.View>
         <View
           renderToHardwareTextureAndroid={true}
@@ -506,6 +519,15 @@ export default class Slider extends PureComponent {
     if (!thumbImage) return;
 
     return <Image source={thumbImage} />;
+  };
+
+  _renderThumbText = () => {
+    var {thumbText, thumbTextStyle } = this.props;
+
+    if (!thumbText) return;
+    if (!thumbTextStyle) thumbTextStyle = {};
+
+    return <Text style={[thumbTextStyle]}>{ thumbText }</Text>
   };
 }
 

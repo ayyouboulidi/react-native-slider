@@ -11,6 +11,8 @@ in progress, ideas and contributions are very welcome.
 <img src="https://raw.githubusercontent.com/jeanregisser/react-native-slider/master/Screenshots/basic@2x.png" width="375">
 <img src="https://raw.githubusercontent.com/jeanregisser/react-native-slider/master/Screenshots/basic_android_xxhdpi.png" width="360">
 
+<img src="https://www.github.com/ayyouboulidi/react-native-slider/master/Screenshots/slider with text in thumb.png" width="360">
+
 It is a drop-in replacement for [Slider](http://facebook.github.io/react-native/docs/slider.html).
 
 ## Install
@@ -69,6 +71,46 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent("SliderExample", () => SliderExample);
 ```
 
+How to use it with a text inside.
+
+```jsx
+import React from "react";
+import Slider from "react-native-slider";
+import { AppRegistry, StyleSheet, View, Text } from "react-native";
+
+class SliderExample extends React.Component {
+  state = {
+    value: 0.2
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Slider
+          value={this.state.value}
+          onValueChange={value => this.setState({ value })}
+          thumbText={`${this.state.value}km`}
+          thumbStyle={{ justifyContent: 'center', alignItems: 'center' }}
+          thumbTextStyle={{color: 'red' }}
+        />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginLeft: 10,
+    marginRight: 10,
+    alignItems: "stretch",
+    justifyContent: "center"
+  }
+});
+
+AppRegistry.registerComponent("SliderExample", () => SliderExample);
+```
+
 Try this example [live on Expo Snack](https://snack.expo.io/HkbAqpbwb).
 
 ## Props
@@ -91,6 +133,8 @@ style                 | [style](http://facebook.github.io/react-native/docs/view
 trackStyle            | [style](http://facebook.github.io/react-native/docs/view.html#style)    | Yes      |                           | The style applied to the track
 thumbStyle            | [style](http://facebook.github.io/react-native/docs/view.html#style)    | Yes      |                           | The style applied to the thumb
 thumbImage            | [source](http://facebook.github.io/react-native/docs/image.html#source)    | Yes      |                           | Sets an image for the thumb.
+thumbText             | string   | Yes      |                           | Sets a text insde the thumb.
+thumbTextStyle        | object   | Yes      |                           | Sets a style of the text insde the thumb.
 debugTouchArea        | bool     | Yes      | false                     | Set this to true to visually see the thumb touch rect in green.
 animateTransitions    | bool     | Yes      | false                     | Set to true if you want to use the default 'spring' animation
 animationType         | string   | Yes      | 'timing'                  | Set to 'spring' or 'timing' to use one of those two types of animations with the default [animation properties](https://facebook.github.io/react-native/docs/animations.html).
